@@ -1,6 +1,5 @@
 <div class="contenedor">
   <!-- Muestro primero los botones que toca, según esté el juego activo o inactivo -->
-
   <div  *ngIf = "juegoSeleccionado.JuegoActivo" class="enColumna" style="width: 100%">
     <button type="button" class="btn Eliminar" (click) = "DesactivarJuego()"> Desactivar<i class="material-icons">history</i></button>
   </div>
@@ -16,7 +15,7 @@
    
  <!-- El resto del componente es igual tanto si está activo como si está inactivo. -->
 
-  <div *ngIf = "tablaPreparada && datosPreparados" style="width: 100%">
+  <div *ngIf = "tablaPreparada" style="width: 100%">
     <i class="material-icons" style = "color:green"> done</i>  indica que todos los miembros del equipo han completado el control <br>
     <i class="material-icons" style = "color:red"> done</i>  indica que todos han completado el control y alguno ha recibido una calificación especialmente baja (menos de la mitad de lo correspondiente a un reparto equipobrado) <br>
     <i class="material-icons" style = "color: black"> hourglass_bottom</i>  indica que solo algunos miembros del equipo han completado el control <br>
@@ -35,7 +34,6 @@
                     <i *ngIf = "controlTerminado[j][i] === 1" (click)="MouseOver(i, element)" class="material-icons" style = "color:green"> done</i> 
                     <i *ngIf = "controlTerminado[j][i] === 2" (click)="MouseOver(i, element)" class="material-icons" style = "color:red"> done</i> 
                     <i *ngIf = "controlTerminado[j][i] === 3" (click)="MouseOver(i, element)" class="material-icons" style = "color: black"> hourglass_bottom</i> 
-             
                   </td>
                 </ng-container>
 
@@ -50,6 +48,12 @@
     <br> 
     <h2 align = "center">
       Control <span style = "color: red;">{{numeroDeControl}}</span> del equipo <span style = "color: red;">{{nombreDelEquipo}}</span>
+      <style>
+        .contenedorE {
+          left: 50%;
+          margin-left: 200px;
+        }
+      </style>
     </h2>
     <br>
     <div class="enFila">
@@ -58,8 +62,9 @@
                   <ng-container matColumnDef="alumno">
                     <th mat-header-cell class= "tituloColumnaTabla" *matHeaderCellDef>  </th>
                     <td mat-cell style= "text-align: left" *matCellDef="let alumno"> 
+                      <i class="material-icons" id="elimina" style="color:  red; margin-left: -5px;" (click) = "EliminarVoto(alumno.id)" > delete</i>
                       {{alumno.Nombre}} {{alumno.PrimerApellido}}
-                      <i class="material-icons" style = "color:green">forward</i>      
+                      <i class="material-icons" style = "color:green">forward</i>
                     </td>
                     <td mat-footer-cell *matFooterCellDef style= "text-align: left; font-size:large; font-weight: bold ;"> Total </td>
                   </ng-container>
@@ -73,6 +78,7 @@
                       {{ Suma (i)}} 
                     </td>
                   </ng-container> 
+
 
           <!-- Aquí indicamos de donde saca los identificadores de las columnas-->
                   <tr mat-header-row *matHeaderRowDef="displayedColumnsControl"></tr>
@@ -90,7 +96,11 @@
               </mat-list-item>
             </mat-list>
           </div>
+          
     </div>
+
+
   </div>
 
+  
 </div>

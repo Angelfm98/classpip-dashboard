@@ -301,6 +301,7 @@ import { AsignacionPreguntasJuegoPuzzleComponent } from './paginas/juego/asignac
 
 import { JuegoDePuzzleSeleccionadoInactivoComponent } from './paginas/juego-seleccionado-inactivo/juego-de-puzzle-seleccionado-inactivo/juego-de-puzzle-seleccionado-inactivo.component';
 import { JuegoDePuzzleSeleccionadoActivoComponent } from './paginas/juego-seleccionado-activo/juego-de-puzzle-seleccionado-activo/juego-de-puzzle-seleccionado-activo.component';
+import { MapPopupComponent } from './paginas/crear-escenario/map-popup/map-popup.component';
 
 
 @NgModule({
@@ -481,7 +482,8 @@ import { JuegoDePuzzleSeleccionadoActivoComponent } from './paginas/juego-selecc
     AsignacionFamiliaJuegoPuzzleComponent,
     AsignacionPreguntasJuegoPuzzleComponent,
     JuegoDePuzzleSeleccionadoInactivoComponent,
-    JuegoDePuzzleSeleccionadoActivoComponent
+    JuegoDePuzzleSeleccionadoActivoComponent,
+    MapPopupComponent
 
   ],
   imports: [
@@ -533,7 +535,8 @@ import { JuegoDePuzzleSeleccionadoActivoComponent } from './paginas/juego-selecc
 
   ],
   // INCLUIR DIÁLOGOS AQUI ADEMÁS DE ARRIBA
-  entryComponents: [AgregarAlumnoDialogComponent, AgregarPreguntasDialogComponent,
+  // INCLUIR DIÁLOGOS AQUI ADEMÁS DE ARRIBA
+  entryComponents: [AgregarAlumnoDialogComponent, AgregarPreguntasDialogComponent, MapPopupComponent,
     AgregarAlumnoEquipoComponent, DialogoConfirmacionComponent, MoverAlumnoComponent, AgregarCromoDialogComponent,
     // tslint:disable-next-line:max-line-length
     EditarCromoDialogComponent, DialogoComponent, EditarPreguntaDialogComponent, AgregarPuntoGeolocalizableDialogComponent, EditarPuntoGeolocalizableDialogComponent, 

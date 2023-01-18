@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MapPopupComponent } from './map-popup/map-popup.component';
 
 // Imports para abrir diálogo confirmar eliminar equipo
 import { MatDialog, MatTabGroup } from '@angular/material';
@@ -137,6 +138,15 @@ export class CrearEscenarioComponent implements OnInit {
     });
   }
 
+  SelecionMapa () {
+    const dialogRef = this.dialog.open(MapPopupComponent, {
+      width: '80%',
+      height: '80%',
+      position: {
+        top: '0%'
+      },
+    });
+  }
 
   AgregarPuntoGeolocalizableEscenario() {
 
