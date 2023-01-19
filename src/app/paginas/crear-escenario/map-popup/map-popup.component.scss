@@ -1,10 +1,12 @@
 .map-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 30px;
+
+    width: 60vw;
+    height: 60vh;
+    padding: 0 ;
+    margin-bottom: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .map-frame {
@@ -15,4 +17,16 @@
   #map {
     height: 100%;
   }
+
+  .closeBut {
+    margin: 0 auto;
+    display: block;
+    scale: 1.5;
+    width: 50%;
+  }
+  
+  .divBut {
+    margin-top: 50px;
+  }
+  
   
