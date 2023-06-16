@@ -55,6 +55,7 @@ export class CrearEscenarioComponent implements OnInit {
   pistadificilPuntoGeolocalizable: string;
   puntosgeolocalizablesAgregados: PuntoGeolocalizable [] = [];
   isDisabledPuntoGeolocalizable: Boolean = true;
+  coords: number [] = [];
 
  
   profesorId: number;
@@ -142,11 +143,21 @@ export class CrearEscenarioComponent implements OnInit {
     const dialogRef = this.dialog.open(MapPopupComponent, {
       width: '80%',
       height: '80%',
+      data: this.coords,
       position: {
         top: '0%'
       },
     });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.event == "Update"){
+        console.log("Correcto, el vector valía: "+result.data);
+        this.latitudPuntoGeolocalizable = result.data[0];
+        this.longitudPuntoGeolocalizable = result.data[1];
+
+      }
+    })
   }
+
 
   AgregarPuntoGeolocalizableEscenario() {
 

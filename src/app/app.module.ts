@@ -258,7 +258,7 @@ import { JuegoDeCogerTurnoRapidoComponent } from './paginas/mis-juegos-rapidos/j
 import { ModificarPerfilComponent } from './paginas/modificar-perfil/modificar-perfil.component';
 
 import { ExcludePipe } from './pipes/exclude.pipe';
-import { TeamExcludePipe } from './pipes/team-exclude.pipe';
+import { TeamExcludePipe } from './servicios/team-exclude.pipe';
 
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { JuegoDeCuestionarioKahootSeleccionadoActivoComponent } from './paginas/juego-seleccionado-activo/juego-de-cuestionario-kahoot-seleccionado-activo/juego-de-cuestionario-kahoot-seleccionado-activo.component';

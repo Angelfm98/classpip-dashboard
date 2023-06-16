@@ -1,4 +1,4 @@
-import { TeamExcludePipe } from './team-exclude.pipe';
+import { TeamExcludePipe } from '../servicios/team-exclude.pipe';
 
 describe('TeamExcludePipe', () => {
   it('create an instance', () => {
