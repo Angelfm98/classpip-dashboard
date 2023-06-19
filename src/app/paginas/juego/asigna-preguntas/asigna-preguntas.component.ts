@@ -27,10 +27,12 @@ export class AsignaPreguntasComponent implements OnInit {
   dataSourceMisPreguntasBonus;
   misPreguntasBonus: Pregunta[] = [];
 
+
   // COLUMNAS DE LA TABLA Y LA LISTA CON LA INFORMACION NECESARIA
   displayedColumnsPreguntasSeleccionadas: string[] = ['titulo', 'pregunta', 'tematica', ' '];
 
   pregunta: Pregunta;
+  
 
   numeroDePuntosGeolocalizables: number;
   profesorId: number;
@@ -67,6 +69,10 @@ export class AsignaPreguntasComponent implements OnInit {
     this.dataSourceMisPreguntas.filter = filterValue.trim().toLowerCase();
   }
 
+ 
+
+  
+
   AbrirDialogoConfirmacionBorrarBasica(pregunta: Pregunta): void {
     const dialogRef = this.dialog.open(DialogoConfirmacionComponent, {
       height: '150px',
@@ -101,31 +107,37 @@ export class AsignaPreguntasComponent implements OnInit {
 
   AsignarPreguntaBasica(pregunta: Pregunta) {
     const found = this.misPreguntasBasicas.find (a => a.Titulo === pregunta.Titulo && a.Pregunta === pregunta.Pregunta);
-    if (found === undefined) {
+    if (found === undefined && this.numeroDePuntosGeolocalizables>=this.misPreguntasBasicas.length ) {
       // Añadimos las preguntas a la lista
       this.misPreguntasBasicas.push (pregunta);
       this.IDmisPreguntasBasicas.push (pregunta.id);
       console.log(this.IDmisPreguntasBasicas);
       this.misPreguntasBasicas.sort((a, b) => a.Tematica.localeCompare(b.Tematica));
       this.dataSourceMisPreguntasBasicas = new MatTableDataSource (this.misPreguntasBasicas);
-      this.misPreguntas = this.misPreguntas.filter (a => a.Titulo !== pregunta.Titulo && a.Pregunta !== pregunta.Pregunta);
+      this.misPreguntas = this.misPreguntas.filter (a => a.Titulo !== pregunta.Titulo || a.Pregunta !== pregunta.Pregunta);
       this.dataSourceMisPreguntas = new MatTableDataSource (this.misPreguntas);
+
+      Swal.fire('Pregunta añadida correctamente');
+      
     } else {
+      
       Swal.fire('Cuidado', 'Esta pregunta ya esta en el juego', 'error');
     }
   }
 
   AsignarPreguntaBonus(pregunta: Pregunta) {
     const found = this.misPreguntasBonus.find (a => a.Titulo === pregunta.Titulo && a.Pregunta === pregunta.Pregunta);
-    if (found === undefined) {
+    if (found === undefined && this.numeroDePuntosGeolocalizables>=this.misPreguntasBonus.length) {
       // Añadimos las preguntas a la lista
       this.misPreguntasBonus.push (pregunta);
       this.IDmisPreguntasBonus.push (pregunta.id);
       console.log(this.IDmisPreguntasBonus);
       this.misPreguntasBonus.sort((a, b) => a.Tematica.localeCompare(b.Tematica));
       this.dataSourceMisPreguntasBonus = new MatTableDataSource (this.misPreguntasBonus);
-      this.misPreguntas = this.misPreguntas.filter (a => a.Titulo !== pregunta.Titulo && a.Pregunta !== pregunta.Pregunta);
+      this.misPreguntas = this.misPreguntas.filter (a => a.Titulo !== pregunta.Titulo || a.Pregunta !== pregunta.Pregunta);
       this.dataSourceMisPreguntas = new MatTableDataSource (this.misPreguntas);
+
+      Swal.fire('Pregunta Bonus añadida correctamente');
     } else {
       Swal.fire('Cuidado', 'Esta pregunta ya esta en el juego', 'error');
     }

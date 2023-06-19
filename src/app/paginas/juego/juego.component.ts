@@ -2491,13 +2491,18 @@ export class JuegoComponent implements OnInit {
     if (this.myForm.value.PuntuacionCorrectaGeo === '' ||
       this.myForm.value.PuntuacionIncorrectaGeo === '' ||
       this.myForm.value.PuntuacionCorrectaGeoBonus === '' ||
-      this.myForm.value.PuntuacionIncorrectaGeoBonus === '') {
+      this.myForm.value.PuntuacionIncorrectaGeoBonus === ''||
+      isNaN(this.myForm.value.PuntuacionCorrectaGeo) ||
+      isNaN(this.myForm.value.PuntuacionCorrectaGeoBonus) ||
+      isNaN(this.myForm.value.PuntuacionIncorrectaGeo)||
+      isNaN(this.myForm.value.PuntuacionIncorrectaGeoBonus)){
       return false;
     } else {
       return true;
     }
   }
   GuardarPuntuacionGeocaching() {
+  
     this.puntuacionCorrectaGeo = this.myForm.value.PuntuacionCorrectaGeo;
     this.puntuacionIncorrectaGeo = this.myForm.value.PuntuacionIncorrectaGeo;
     this.puntuacionCorrectaGeoBonus = this.myForm.value.PuntuacionCorrectaGeoBonus;
@@ -2751,8 +2756,8 @@ export class JuegoComponent implements OnInit {
       this.pesos,
       this.nombreDelJuego,
       false,
-      this.grupo.id);
-      this.votanEquipos;
+      this.grupo.id,
+      this.votanEquipos);
     console.log('voy a crear juego');
     console.log(juegoDeVotacion);
     this.peticionesAPI.CreaJuegoDeVotacionTodosAUno(juegoDeVotacion, this.grupo.id)

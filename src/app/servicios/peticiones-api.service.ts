@@ -1861,7 +1861,7 @@ public ModificaInscripcionEquipoJuegoDeVotacionUnoATodos(inscripcion: EquipoJueg
 
   ////////////////////////////////// GESTION VOTACION TODOS A UNO EQUIPOS /////////////////////////////////////////////////////////
 
-  public DameEquiposJuegoDeVotacionTodosAUno(juegoId: number): Observable<Equipo[]> {
+ public DameEquiposJuegoDeVotacionTodosAUno(juegoId: number): Observable<Equipo[]> {
     return this.http.get<Equipo[]>(this.APIUrlJuegoDeVotacionTodosAUno + '/' + juegoId + '/equipos');
   }
 
