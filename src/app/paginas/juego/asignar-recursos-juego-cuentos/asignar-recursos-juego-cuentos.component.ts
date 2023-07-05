@@ -13,7 +13,6 @@ import {SelectionModel} from '@angular/cdk/collections';
 
    // Services
 import { SesionService, PeticionesAPIService, CalculosService } from '../../../servicios/index';
-import { element } from 'protractor';
 @Component({
   selector: 'app-asignar-recursos-juego-cuentos',
   templateUrl: './asignar-recursos-juego-cuentos.component.html',

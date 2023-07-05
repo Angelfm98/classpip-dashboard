@@ -40,6 +40,7 @@ export class MapPopupComponent implements AfterViewInit {
   }
 
   onNoClick() {
+    console.log("los datos a enviar són: "+this.data)
     this.dialogRef.close({event: 'Update', data: this.data});
   }
   private initMap(): void {
@@ -72,7 +73,7 @@ export class MapPopupComponent implements AfterViewInit {
         if (coord.lng <0) {
           this.data[1] = - Math.abs(coord.lng).toFixed(4);
         }
-        else { this.data[1] = coord.lat.toFixed(4); }
+        else { this.data[1] = coord.lng.toFixed(4); }
         this.first = false;
       }
       else {
